@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from "react";
-import { Square } from "./index";
+import { Square } from "../index";
 
 export default {
   component: Square,
@@ -26,4 +26,14 @@ Circle.args = {
 export const Triangle = Template.bind({});
 Triangle.args = {
   value: '△'
+};
+
+export const han = Template.bind({});
+han.args = {
+  value: '半'
+};
+
+export const cho = Template.bind({});
+cho.args = {
+  value: '丁'
 };

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from "react";
-import { Board } from "./index";
+import { Board } from "../index";
 
 
 export default {

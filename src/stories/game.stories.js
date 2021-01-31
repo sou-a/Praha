@@ -1,8 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from "react";
-import { Game } from "./index";
-import * as SquareStories from './square.stories';
-import * as BoardStories from './board.stories';
+import { Game } from "../index";
 
 
 export default {
