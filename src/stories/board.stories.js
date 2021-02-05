@@ -13,11 +13,11 @@ const Template = args => <Board {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    squares: Array(12).fill(null),
+    squares: Array(9).fill(null),
 };
 
 export const FillTriangle = Template.bind({});
 FillTriangle.args = {
-  squares: Array(12).fill(SquareStories.Triangle.args.value),
+  squares: Array(9).fill(SquareStories.Triangle.args.value),
 };
 
