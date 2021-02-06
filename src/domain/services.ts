@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { ISquare } from './entity';
+import { InSquare } from './entity';
 
 /**
  * 現在の盤面からゲームが終わったかどうかを判定
  * @param squares 現在の盤面
  */
-export function calculateWinner(squares: ISquare[]) {
+export function calculateWinner(squares: InSquare[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -30,7 +30,7 @@ export function calculateWinner(squares: ISquare[]) {
  * @param winner 勝者の文字列（決着がついていないときは`null`）
  * @param xIsNext 次がxかどうかのフラグ
  */
-export const getStatus = (winner: ISquare, xIsNext: boolean) => {
+export const getStatus = (winner: InSquare, xIsNext: boolean) => {
   if (winner) {
     return 'Winner: ' + winner;
   } else {
@@ -45,7 +45,7 @@ export const getStatus = (winner: ISquare, xIsNext: boolean) => {
  * @param i 何番目の要素が変更されたのか
  */
 export const createNewSquares = (
-  squares: ISquare[],
+  squares: InSquare[],
   xIsNext: boolean,
   i: number,
 ) =>

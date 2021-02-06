@@ -1,6 +1,6 @@
 export interface HistoryElement {
-  squares: ISquare[];
+  squares: InSquare[];
 }
 
 export type History = HistoryElement[];
-export type ISquare = 'X' | 'O' | null;
+export type InSquare = 'X' | 'O' | null;

@@ -6,7 +6,7 @@ interface MovesProps {
   jumpTo: (move: number) => void;
 }
 
-const Moves: FC<MovesProps> = ({ histories, jumpTo }) => (
+export const Moves: FC<MovesProps> = ({ histories, jumpTo }) => (
   <ol>
     {histories.map((_, move) => {
       const desc = move ? `Go to move #${move}` : 'Go to game start';
@@ -18,5 +18,3 @@ const Moves: FC<MovesProps> = ({ histories, jumpTo }) => (
     })}
   </ol>
 );
-
-export default Moves;

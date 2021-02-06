@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import { ISquare, History } from '../domain/entity';
+import { InSquare, History } from '../domain/entity';
 import {
   calculateWinner,
   getStatus,
   createNewSquares,
 } from '../domain/services';
-import Board from './Board';
-import Moves from './Moves';
+import { Board } from './Board';
+import { Moves } from './Moves';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const Game = () => {
   const [history, setHistory] = useState<History>([
     {
-      squares: Array<ISquare>(9).fill(null),
+      squares: Array<InSquare>(9).fill(null),
     },
   ]);
   const [stepNumber, setStepNumber] = useState(0);

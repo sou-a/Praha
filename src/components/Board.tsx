@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import Square from './Square';
-import { ISquare } from '../domain/entity';
+import { Square } from './Square';
+import { InSquare } from '../domain/entity';
 
 interface BoardProps {
-  squares: ISquare[];
+  squares: InSquare[];
   onClick: (i: number) => void;
 }
 
-const Board: FC<BoardProps> = ({ squares, onClick }) => {
+export const Board: FC<BoardProps> = ({ squares, onClick }) => {
   return (
     <div>
       {[...Array(3)].map((_, i) => {
@@ -29,5 +29,3 @@ const Board: FC<BoardProps> = ({ squares, onClick }) => {
     </div>
   );
 };
-
-export default Board;
