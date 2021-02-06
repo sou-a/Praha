@@ -36,3 +36,23 @@ export const getStatus = (winner: ISquare, xIsNext: boolean) => {
     return 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
 };
+
+/**
+ * クリックイベント後の盤面の新しい配列を返す関数
+ * @param squares 盤面の状態
+ * @param xIsNext 次がxかどうか
+ * @param i 何番目の要素が変更されたのか
+ */
+export const createNewSquares = (
+  squares: ISquare[],
+  xIsNext: boolean,
+  i: number,
+) =>
+  // mapで新しい配列を返すように変更
+  squares.map((square, index) => {
+    if (i === index) {
+      return xIsNext ? 'X' : 'O';
+    }
+
+    return square;
+  });

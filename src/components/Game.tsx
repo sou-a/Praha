@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { ISquare, History } from '../domain/entity';
-import { calculateWinner, getStatus } from '../domain/services';
+import {
+  calculateWinner,
+  getStatus,
+  createNewSquares,
+} from '../domain/services';
 import Board from './Board';
+import Moves from './Moves';
 
 const Game = () => {
   const [history, setHistory] = useState<History>([
@@ -14,15 +19,16 @@ const Game = () => {
 
   const handleClick = (i: number) => {
     const _history = history.slice(0, stepNumber + 1);
-    const current = _history[_history.length - 1];
-    const squares = current.squares.slice();
-    if (calculateWinner(squares) || squares[i]) {
+    // 参照かどうかを気にしなくていいので完結にかける
+    const _squares = history[stepNumber].squares;
+    if (calculateWinner(_squares) || _squares[i]) {
       return;
     }
-    squares[i] = xIsNext ? 'X' : 'O';
+    // imuutableに
+    const squares = createNewSquares(_squares, xIsNext, i);
 
-    setHistory(history.concat([{ squares }]));
-    setStepNumber(history.length);
+    setHistory(_history.concat([{ squares }]));
+    setStepNumber(_history.length);
     setXIsNext(!xIsNext);
   };
 
@@ -33,14 +39,6 @@ const Game = () => {
 
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
-  const moves = history.map((step, move) => {
-    const desc = move ? 'Go to move #' + move : 'Go to game start';
-    return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)}>{desc}</button>
-      </li>
-    );
-  });
 
   const status = getStatus(winner, xIsNext);
 
@@ -51,7 +49,9 @@ const Game = () => {
       </div>
       <div className="game-info">
         <div>{status}</div>
-        <ol>{moves}</ol>
+        <ol>
+          <Moves histories={history} jumpTo={jumpTo} />
+        </ol>
       </div>
     </div>
   );

@@ -9,12 +9,23 @@ interface BoardProps {
 
 const Board: FC<BoardProps> = ({ squares, onClick }) => {
   return (
-    <div className="board">
-      {Array<number>(9)
-        .fill(0)
-        .map((_, i) => (
-          <Square value={squares[i]} onClick={() => onClick(i)} />
-        ))}
+    <div>
+      {[...Array(3)].map((_, i) => {
+        return (
+          <div className="board-row" key={i}>
+            {[...Array(3)].map((_, j) => {
+              const index = 3 * i + j;
+              return (
+                <Square
+                  value={squares[index]}
+                  onClick={() => onClick(index)}
+                  key={j}
+                ></Square>
+              );
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 };
