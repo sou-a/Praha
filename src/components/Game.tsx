@@ -8,6 +8,7 @@ import {
 import Board from './Board';
 import Moves from './Moves';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const Game = () => {
   const [history, setHistory] = useState<History>([
     {
