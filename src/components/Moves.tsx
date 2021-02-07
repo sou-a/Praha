@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { History } from '../domain/entity';
 
-interface MovesProps {
+export interface MovesProps {
   histories: History;
   jumpTo: (move: number) => void;
 }

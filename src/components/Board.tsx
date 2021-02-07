@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Square } from './Square';
 import { InSquare } from '../domain/entity';
 
-interface BoardProps {
+export interface BoardProps {
   squares: InSquare[];
   onClick: (i: number) => void;
 }

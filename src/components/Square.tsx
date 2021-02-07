@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { InSquare } from '../domain/entity';
 
-interface SquareProps {
+export interface SquareProps {
   value: InSquare;
   onClick: () => void;
 }
