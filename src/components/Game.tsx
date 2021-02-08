@@ -41,7 +41,7 @@ const Game = () => {
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
 
-  const status = getStatus(winner, xIsNext);
+  const status = getStatus(winner, xIsNext, history);
 
   return (
     <div className="game">

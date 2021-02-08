@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { InSquare } from './entity';
+import { HistoryElement, InSquare } from './entity';
 
 /**
  * 現在の盤面からゲームが終わったかどうかを判定
@@ -30,9 +30,16 @@ export function calculateWinner(squares: InSquare[]) {
  * @param winner 勝者の文字列（決着がついていないときは`null`）
  * @param xIsNext 次がxかどうかのフラグ
  */
-export const getStatus = (winner: InSquare, xIsNext: boolean) => {
+export const getStatus = (
+  winner: InSquare,
+  xIsNext: boolean,
+  history: HistoryElement[],
+) => {
+  console.log(history);
   if (winner) {
     return 'Winner: ' + winner;
+  } else if (history.length === 10) {
+    return 'Draw!';
   } else {
     return 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
